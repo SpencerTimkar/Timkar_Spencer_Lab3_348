@@ -1,0 +1,68 @@
+<html>  
+<link rel="stylesheet" href="style.css">
+
+<h1>
+    Password Checker 
+
+</h1>
+
+<p id="password1" aria-label="Password">
+  Password Here -->
+  <input type="password" id="password1-input" name="password1" oninput="checkPasswords()"><br><br>
+</p>
+
+<p id="password2" aria-label="Password">
+  Password Here -->
+  <input type="password" id="password2-input" name="password2" oninput="checkPasswords()"><br><br>
+  <button onclick="checkPasswordsalert()">Password Check Button</button>
+</p>
+
+<div id="password-message" style="text-align:center; color:yellow; font-size:18px; min-height:24px;"></div>
+
+<script>
+  function checkPasswords() {
+    const pwdInput = document.getElementById('password1-input').value;
+    const pwdInput2 = document.getElementById('password2-input').value;
+    const messageDiv = document.getElementById('password-message');
+
+    if (!pwdInput && !pwdInput2) {
+      messageDiv.textContent = '';
+      return;
+    }
+
+    if (pwdInput.length < 8) {
+      messageDiv.textContent = "Password must be at least 8 characters long.";
+      messageDiv.style.color = "orange";
+    } else if (pwdInput !== pwdInput2) {
+      messageDiv.textContent = "Passwords do not match.";
+      messageDiv.style.color = "red";
+    } else {
+      messageDiv.textContent = "Passwords match!";
+      messageDiv.style.color = "lightgreen";
+    }
+  }
+
+  function checkPasswordsalert() {
+    const pwdInput = document.getElementById('password1-input').value;
+    const pwdInput2 = document.getElementById('password2-input').value;
+    const messageDiv = document.getElementById('password-message');
+
+    if (!pwdInput && !pwdInput2) {
+      messageDiv.textContent = '';
+      return;
+    }
+
+    if (pwdInput.length < 8) {
+      alert("Password must be at least 8 characters long.");
+    } else if (pwdInput !== pwdInput2) {
+      alert("Passwords do not match")
+    } else {
+      alert("Passwords match!")
+    }
+  }
+</script>
+
+<a class="back-link" href="index.html">Go back to Index</a>
+
+
+</html>

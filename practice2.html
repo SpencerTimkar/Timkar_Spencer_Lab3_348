@@ -1,0 +1,39 @@
+<html>
+<link rel="stylesheet" href="style.css">
+
+<head>
+  <meta charset="utf-8">
+  <title>Practice 2 - CSS Font Control</title>
+</head>
+<body>
+  <p id="myParagraph">This is some sample text.</p>
+
+  <label>R: <input type="number" id="red" min="0" max="255"></label>
+  <label>G: <input type="number" id="green" min="0" max="255"></label>
+  <label>B: <input type="number" id="blue" min="0" max="255"></label>
+  <label>Border width (px): <input type="number" id="borderWidth" min="0"></label>
+  
+  <button onclick="applyStyles()">Apply</button>
+
+  <script>
+    function applyStyles() {
+      // Grab values
+      let r = document.getElementById("red").value || 0;
+      let g = document.getElementById("green").value || 0;
+      let b = document.getElementById("blue").value || 0;
+      let bw = document.getElementById("borderWidth").value || 0;
+
+      // Build rgb string
+      let color = "rgb(" + r + "," + g + "," + b + ")";
+
+      // Apply to paragraph
+      let p = document.getElementById("myParagraph");
+      p.style.color = color;
+      p.style.border = bw + "px solid " + color;
+    }
+  </script>
+</body>
+
+<br> <a class="back-link" href="index.html">Go back to Index</a> <br>
+
+</html>
